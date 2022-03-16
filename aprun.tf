@@ -3,7 +3,7 @@ resource "aws_apprunner_service" "example" {
 
   source_configuration {
     authentication_configuration {
-      connection_arn = arn:aws:apprunner:us-west-2:305861526072:connection/test/7b6cf46aedfb4b408259f889acd50170
+      connection_arn = "arn:aws:apprunner:us-west-2:305861526072:connection/test/7b6cf46aedfb4b408259f889acd50170"
     }
     code_repository {
       code_configuration {
