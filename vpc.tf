@@ -1,10 +1,7 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = "3.12.0"
-  providers = {
-    aws = aws.region2
-  }
-
+  
   name = "app-vpc-region2"
   cidr = "10.0.8.0/21"
   azs             = ["us-west-2a", "us-west-2b"]
