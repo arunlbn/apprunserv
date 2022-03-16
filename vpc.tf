@@ -7,7 +7,7 @@ module "vpc" {
 
   name = "app-vpc-region2"
   cidr = "10.0.8.0/21"
-  azs             = ["ap-southeast-2a", "ap-southeast-2b"]
+  azs             = ["us-east-1a", "us-east-1b"]
   private_subnets = ["10.0.8.0/24", "10.0.9.0/24"]
   database_subnets = ["10.0.10.0/24", "10.0.11.0/24"]
   create_database_subnet_group = false
