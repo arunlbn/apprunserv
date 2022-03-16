@@ -39,5 +39,5 @@ resource "aws_apprunner_service" "example" {
 resource "aws_apprunner_vpc_connector" "connector" {
   vpc_connector_name = "name"
   subnets            = module.vpc.public_subnets
-  security_groups    = ["aws_security_group.sg1.id"]
+  security_groups    = aws_security_group.sg1.id
 }
