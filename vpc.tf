@@ -1,23 +1,25 @@
-module "vpc" {
+module "vpc2" {
   source = "terraform-aws-modules/vpc/aws"
-   version = "3.12.0"
+  version = "3.12.0"
+  providers = {
+    aws = aws.region2
+  }
 
-  name = "my-vpc"
-  cidr = "10.0.0.0/16"
-
-  azs             = ["us-west-2b", "us-west-2c"]
- 
-  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
-
-  enable_nat_gateway = false
-  enable_vpn_gateway = false
+  name = "app-vpc-region2"
+  cidr = "10.0.8.0/21"
+  azs             = ["ap-southeast-2a", "ap-southeast-2b"]
+  private_subnets = ["10.0.8.0/24", "10.0.9.0/24"]
+  database_subnets = ["10.0.10.0/24", "10.0.11.0/24"]
+  create_database_subnet_group = false
+  create_database_subnet_route_table     = true
+  enable_dns_hostnames = true
+  enable_dns_support   = true
 
   tags = {
     Terraform = "true"
-    Environment = "dev"
+    Environment = "prod"
   }
 }
-
   
   resource "aws_security_group" "sg1" {
   name        = "ssh_access_sg"
