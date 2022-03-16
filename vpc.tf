@@ -16,3 +16,29 @@ module "vpc" {
     Environment = "dev"
   }
 }
+
+  
+  resource "aws_security_group" "sg1" {
+  name        = "ssh_access_sg"
+  description = "Allow ssh traffic on demand"
+  vpc_id      = module.vpc1.vpc_id
+
+  ingress {
+    description      = "ssh access"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+      }
+
+  tags = {
+    Name = "ssh-sg"
+  }
+}  
