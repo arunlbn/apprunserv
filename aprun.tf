@@ -3,7 +3,7 @@ resource "aws_apprunner_service" "example" {
 
   source_configuration {
     authentication_configuration {
-      connection_arn = aws_apprunner_connection.example.arn
+      connection_arn = aws_apprunner_connection.connector.arn
     }
     code_repository {
       code_configuration {
