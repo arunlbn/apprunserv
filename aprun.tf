@@ -34,3 +34,10 @@ resource "aws_apprunner_service" "example" {
     Name = "example-apprunner-service"
   }
 }
+
+
+resource "aws_apprunner_vpc_connector" "connector" {
+  vpc_connector_name = "name"
+  subnets            = module.vpc.public_subnets
+  security_groups    = ["sg1"]
+}
