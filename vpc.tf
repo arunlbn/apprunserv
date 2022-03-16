@@ -5,7 +5,7 @@ module "vpc" {
   name = "app-vpc-region2"
   cidr = "10.0.8.0/21"
   azs             = ["us-west-2a", "us-west-2b"]
-  ppublic_subnets = ["10.0.8.0/24", "10.0.9.0/24"]
+  public_subnets = ["10.0.8.0/24", "10.0.9.0/24"]
  
   enable_dns_hostnames = true
   enable_dns_support   = true
